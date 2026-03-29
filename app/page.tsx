@@ -9,6 +9,8 @@ import { Testimonials } from '@/components/sections/Testimonials'
 import { Contact } from '@/components/sections/Contact'
 import { Cursor } from '@/components/ui/Cursor'
 import { ScrollProgress } from '@/components/ui/ScrollProgress'
+import { StickyRDV } from '@/components/ui/StickyRDV'
+import { SocialProof } from '@/components/ui/SocialProof'
 import { getHeroData, getAboutData, getServices, getGallery, getTestimonials, getContactInfo } from '@/lib/db'
 
 export const revalidate = 3600
@@ -27,9 +29,11 @@ export default async function HomePage() {
     <>
       <Cursor />
       <ScrollProgress />
+      <StickyRDV />
       <Navbar />
       <main id="main-content">
         <Hero data={hero} />
+        <SocialProof />
         <Services data={services} />
         <About data={about} />
         <Gallery data={gallery} />

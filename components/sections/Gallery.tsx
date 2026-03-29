@@ -151,6 +151,32 @@ export function Gallery({ data }: { data: GalleryItem[] }) {
         </div>
       </div>
 
+      {/* Intermediate CTA */}
+      <div className="mx-auto max-w-7xl px-6 md:px-12 mt-12">
+        <motion.div
+          initial={shouldReduce ? false : { opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-col items-center gap-4 rounded-2xl py-10 px-6 text-center"
+          style={{ background: 'rgba(192,136,120,0.08)', border: '1px solid rgba(192,136,120,0.18)' }}
+        >
+          <p className="font-display italic text-white" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+            Envie d'un résultat comme celui-ci ?
+          </p>
+          <p className="font-body text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Chaque pose est créée sur mesure selon votre style et vos envies.
+          </p>
+          <a
+            href="#contact"
+            className="mt-2 inline-flex items-center gap-3 rounded-full px-8 py-3.5 font-body text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #C08878, #9A6858)' }}
+          >
+            Prendre rendez-vous
+            <span aria-hidden>→</span>
+          </a>
+        </motion.div>
+      </div>
+
       {/* Lightbox */}
       <AnimatePresence>
         {selected && (

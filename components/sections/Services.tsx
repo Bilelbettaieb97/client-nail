@@ -160,6 +160,30 @@ export function Services({ data }: { data: Service[] }) {
         >
           * Tarifs indicatifs, produits inclus. Un devis personnalisé sera établi lors de votre consultation.
         </motion.p>
+
+        {/* Intermediate CTA */}
+        <motion.div
+          initial={shouldReduce ? false : { opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.75 }}
+          className="mt-14 flex flex-col items-center gap-4 rounded-2xl py-10 px-6 text-center"
+          style={{ background: 'rgba(192,136,120,0.08)', border: '1px solid rgba(192,136,120,0.18)' }}
+        >
+          <p className="font-display italic text-white" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+            Vous avez trouvé votre soin ?
+          </p>
+          <p className="font-body text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Réponse garantie sous 2h en semaine — créneaux disponibles cette semaine
+          </p>
+          <a
+            href="#contact"
+            className="mt-2 inline-flex items-center gap-3 rounded-full px-8 py-3.5 font-body text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #C08878, #9A6858)' }}
+          >
+            Réserver maintenant
+            <span aria-hidden>→</span>
+          </a>
+        </motion.div>
       </div>
     </section>
   )

@@ -113,12 +113,42 @@ export function Hero({ data }: { data: HeroData }) {
           {data.description}
         </motion.p>
 
+        {/* Guarantee badge */}
+        <motion.div
+          className="mt-4 inline-flex items-center gap-2"
+          initial={shouldReduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.75 }}
+        >
+          <span className="font-body text-xs" style={{ color: '#C08878' }}>✦</span>
+          <span className="font-body text-xs font-medium" style={{ color: '#7A6A62' }}>
+            Résultats garantis · Retouche offerte sous 5 jours
+          </span>
+        </motion.div>
+
+        {/* Urgency */}
+        <motion.div
+          className="mt-5 inline-flex items-center gap-2 rounded-full px-3.5 py-1.5"
+          style={{ background: 'rgba(192,136,120,0.1)', border: '1px solid rgba(192,136,120,0.2)' }}
+          initial={shouldReduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.85 }}
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" style={{ background: '#C08878' }} />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: '#C08878' }} />
+          </span>
+          <span className="font-body text-[11px] font-medium" style={{ color: '#C08878' }}>
+            Créneaux disponibles cette semaine
+          </span>
+        </motion.div>
+
         {/* CTA */}
         <motion.div
-          className="mt-10 flex items-center gap-6"
+          className="mt-8 flex flex-wrap items-center gap-4"
           initial={shouldReduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.95 }}
         >
           <a
             href="#contact"
@@ -130,10 +160,10 @@ export function Hero({ data }: { data: HeroData }) {
           </a>
           <a
             href="#services"
-            className="font-body text-sm font-medium transition-colors hover:text-[#C08878]"
+            className="inline-flex items-center gap-2 font-body text-sm font-medium transition-colors hover:text-[#C08878]"
             style={{ color: '#1A1210' }}
           >
-            Nos prestations
+            Voir les soins
           </a>
         </motion.div>
 
@@ -147,7 +177,7 @@ export function Hero({ data }: { data: HeroData }) {
           {[
             { value: '8 ans', label: "d'expertise" },
             { value: '2 000+', label: 'clientes fidèles' },
-            { value: '5★', label: 'sur Google' },
+            { value: '4.9★', label: '127 avis Google' },
           ].map((stat, i) => (
             <div key={stat.label} className="flex items-center gap-8">
               {i > 0 && <div className="h-8 w-px" style={{ background: '#E8E0D8' }} aria-hidden />}
